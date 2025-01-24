@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import LoginPage from './components/Login';
-import StudentsPage from './components/Student';
+import Login from './components/Login';
+import Student from './components/Student';
 import Sidebar from './components/Sidebar';
 import { auth } from './firebase';
 
@@ -22,14 +22,14 @@ function App() {
           <Sidebar />
           <div style={{ marginLeft: '200px', width: '100%' }}>
             <Routes>
-              <Route path="/students" element={<StudentsPage />} />
+              <Route path="/students" element={<Student />} />
               <Route path="/*" element={<Navigate to="/students" />} />
             </Routes>
           </div>
         </div>
       ) : (
         <Routes>
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/*" element={<Navigate to="/login" />} />
         </Routes>
       )}
